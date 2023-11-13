@@ -12,7 +12,6 @@ const DoneView = ({
   setDone,
 }: DoneViewProps): JSX.Element => {
   const resetGame = useCallback(() => {
-    console.log(`moveCounter: ${moveCounter}, moveBest: ${moveBest}`);
     if (moveBest === null || moveCounter < moveBest) {
       localStorage.setItem('memoryGameBestScore', moveCounter.toString());
     }

@@ -1,0 +1,157 @@
+body {
+  font-family: system-ui, sans-serif;
+  color: black;
+  background: radial-gradient(100% 100%, rgb(68, 159, 88), black);
+  height: 100vh;
+}
+
+#tileBoard {
+  display: grid;
+  grid-template-columns: 80px 80px 80px 80px 80px 80px;
+  gap: 20px;
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  width: 76px;
+  height: 115px;
+  line-height: 100px;
+  font-size: 125px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#matchedTile {
+  color: rgb(0, 100, 88);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  cursor: default;
+}
+
+#matchedBack {
+  color: rgb(0, 100, 88);
+  opacity: 0;
+  transition-delay: 0.2s;
+  cursor: default;
+}
+
+.innerTile {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+}
+
+.back,
+.front {
+  right: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.innerTile.active {
+  transform: rotateY(180deg);
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  color: darkred;
+  background-color: white;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#moveCounter {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px black;
+}
+
+#gameTitle {
+  font-size: 32px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px black;
+  margin-bottom: 0px;
+}
+
+#gameSubtitle {
+  margin-top: 0px;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px black;
+}
+
+#doneView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameOverTitle {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.gameOverSubtitle {
+  font-size: 24px;
+  margin-top: 0px;
+  margin-bottom: 50px;
+}
+
+.moves {
+  font-size: 22px;
+  margin-bottom: 100px;
+}
+
+.moves > p {
+  position: relative;
+  left: 80px;
+  display: grid;
+  grid-template-columns: 200px 200px;
+  gap: 20px;
+}
+
+#resetButton {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(241, 188, 29);
+  width: 150px;
+  height: 50px;
+  border: 3px black solid;
+  border-radius: 15px;
+  font-size: 22px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  cursor: pointer;
+}
+
+#resetButton:hover {
+  background-color: rgb(179, 139, 22);
+}
